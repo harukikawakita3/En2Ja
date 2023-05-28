@@ -17,4 +17,4 @@ for i, chunk in enumerate(audio_file[::split_interval]):
     # 分割したオーディオファイルを保存する
     chunk.export(output_dir + f"mini{i}.mp3", format="mp3")
 
-print('successfully')
+print('successfully!')

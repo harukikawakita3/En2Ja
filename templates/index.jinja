@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="/" method="post">
+  URL:<br>
+  <input type="text" name="url">
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+{{ subtitle_filename}}
+{{ subtitle_path}}
+
+<h2>Subtitles</h2>
+<pre>{{ subtitles }}</pre>
+
+<h2>srt</h2>
+<pre>{{ srt }}</pre>
+
+{% if error %}
+  <p>Error: {{ error }}</p>
+{% endif %}
+
+</body>
+</html>

@@ -1,4 +1,8 @@
+__pycache__
 dlm
 opm
 opt
+yt-dlp
+yt-venv
+download-list.txt
 .env

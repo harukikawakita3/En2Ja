@@ -2,6 +2,7 @@ from pathlib import Path
 from flask import Flask, render_template, request
 from app import remove_specific_timestamps, convert_vtt_to_srt, clean_title
 from yt_dlp import YoutubeDL
+import os
 
 app = Flask(__name__)
 
@@ -44,16 +45,20 @@ def index():
         if not subtitles_remove_timestamps:
             return render_template('index.jinja', error="Subtitle file is empty")
 
-        with open('subtitle.txt', 'w') as f:
+        with open(f'dlm/{subtitle_filename}.txt', 'w') as f:
             f.write(subtitles_remove_timestamps)
 
-        with open('subtitle.srt', 'w') as f:
+        with open(f'dlm/{subtitle_filename}.srt', 'w') as f:
             f.write(subtitle_srt)
+
+        if subtitle_path.is_file():
+            # .vttファイルが存在する場合、削除します
+            os.remove(subtitle_path)
 
         return render_template('index.jinja', subtitles=subtitles_remove_timestamps, vtt=subtitle_path, srt=subtitle_srt)
 
     return render_template('index.jinja')
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    app.run()
+#host="0.0.0.0"

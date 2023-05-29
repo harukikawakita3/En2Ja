@@ -1,8 +1,10 @@
 __pycache__
-dlm
 opm
 opt
 yt-dlp
 yt-venv
 download-list.txt
+runtime.txt
+requirements.txt
+procfile
 .env
